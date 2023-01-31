@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_FEFF9E96-D6D6-4C5B-9B4D-7764E2D59711" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_EB63AE52-7F4B-410E-B7DF-BF60068FAE7C" name="Untitled" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_FEFF9E96-D6D6-4C5B-9B4D-7764E2D59711">
+  <dmn:extensionElements/>
+  <dmn:itemDefinition id="_105DD390-B072-48D8-936E-D7BE67DE99D8" name="Request" isCollection="false">
+    <dmn:itemComponent id="_088451B0-707D-40C8-A806-C22892D50A91" name="Customer Group" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_783BE7C1-8A55-4485-BBA5-16E92188EF83" name="Request Type" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+      <dmn:allowedValues id="_0BD96F4D-2660-4F23-8ED9-29603ABC9619">
+        <dmn:text>"New Relationship","New Location"</dmn:text>
+      </dmn:allowedValues>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_9D26FE6E-605E-4967-9262-4D14C278383B" name="Sub Region" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_EC71FE8C-0BA1-4C3D-8F71-B21C334838B9" name="Account Group" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_0C387CF8-78AB-4547-B077-E0B6CD75AFD9" name="Attribute 1" isCollection="false">
+    <dmn:typeRef>string</dmn:typeRef>
+  </dmn:itemDefinition>
+  <dmn:inputData id="_D83E2C1B-B15D-42CC-B5EA-7401C28F5A6A" name="Request">
+    <dmn:extensionElements/>
+    <dmn:variable id="_12DACFFE-86B0-496E-98DA-1328E6A4F722" name="Request" typeRef="Request"/>
+  </dmn:inputData>
+  <dmn:decision id="_6A35542E-105C-40A3-97BC-52676A337C15" name="Calculate Attribute 1">
+    <dmn:extensionElements/>
+    <dmn:variable id="_32D2DECE-8CC7-486C-A7E5-C0428A72101F" name="Calculate Attribute 1" typeRef="Attribute 1"/>
+    <dmn:informationRequirement id="_97C4B69E-B9EE-4D41-A871-94A16C658DB1">
+      <dmn:requiredInput href="#_D83E2C1B-B15D-42CC-B5EA-7401C28F5A6A"/>
+    </dmn:informationRequirement>
+    <dmn:decisionTable id="_11C7897B-1138-4F47-8F34-C4312A209F88" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_DC8F804D-73F3-4D2D-AC18-60FF973E1F55">
+        <dmn:inputExpression id="_7658E6F6-A2EB-42C2-95A8-39E9A52ED9C6" typeRef="string">
+          <dmn:text>Request.Account Group</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_9ECE214C-5132-4A9B-B0CE-EB96B961C550">
+        <dmn:inputExpression id="_CF86E080-EB70-4E1E-89BE-174B4FB66D82" typeRef="number">
+          <dmn:text>Request.Customer Group</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_55BEB6AD-C175-4629-A3AF-2DED0DD0B098">
+        <dmn:inputExpression id="_138FE177-F3E7-445C-8725-66C6F2C169A7" typeRef="string">
+          <dmn:text>Request.Request Type</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_905365C7-2684-4BDF-93D7-3E149849EFD2">
+        <dmn:inputExpression id="_35794D06-3106-4049-95C7-4F26700D4A9B" typeRef="string">
+          <dmn:text>Request.Sub Region</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_4D4F2F38-8BAD-436C-A95B-FD4AEBA7544F"/>
+      <dmn:annotation name="annotation-1"/>
+      <dmn:rule id="_119CEAA0-225F-4F6B-825B-DBAC1EA43322">
+        <dmn:inputEntry id="_0FB59A1C-03DB-4F25-9E48-BC8E6160CF94">
+          <dmn:text>"Z002"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_9B589D94-FD89-42A8-87BE-82F9C8C26C2F">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_E3E27C33-0909-49D7-B719-7F85859C8704">
+          <dmn:text>"New Relationship"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_CEF254BE-CE85-48AC-9996-26502E352CD0">
+          <dmn:text>"NA"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_0A9FB73A-233D-45BD-8B0A-BA23DA76B67D">
+          <dmn:text>"ANC"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_251C229B-7271-414C-9C00-5F8B5DA26A58">
+        <dmn:inputEntry id="_5E359774-BD8C-4BD0-BCDA-9A3A3347865B">
+          <dmn:text>"Z003"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_BA701EA9-8416-4356-B095-98220DE3BB75">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_16B54B74-2281-4A3D-938C-05E2EE01877F">
+          <dmn:text>"New Relationship"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_EAA50B66-E1E6-4798-AE91-F5CC5C47508A">
+          <dmn:text>"NA"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_3ED185D4-D392-4B8A-B04B-3B6D76BE6CF1">
+          <dmn:text>"ANC"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_E2FD43DA-E20E-446B-A05A-B0B818A4FE7E">
+        <dmn:inputEntry id="_00D23CB4-E9F8-4541-A52A-50DD38CCFF19">
+          <dmn:text>"Z301"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_2592D012-5383-442C-8DD1-88AC2C34D91B">
+          <dmn:text>52</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_88DC6E1E-6375-40E0-A7D7-C3C82A7CFD04">
+          <dmn:text>"New Relationship"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_9726E14A-4442-48EF-B613-9D3B87CEF8E8">
+          <dmn:text>"NA"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_09C31649-9CE1-4D2A-A493-36FD180D9D48">
+          <dmn:text>"FOB"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_63FD676C-76B1-4F32-B5F9-272EAA1D5478">
+        <dmn:inputEntry id="_3154F3F2-5FA0-4F66-9C37-7F2A4DE0A3D3">
+          <dmn:text>"Z301"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_DA851999-CFB6-42A6-BC91-3FC3814DDDD9">
+          <dmn:text>51</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_342AEA39-E76F-4BF3-9E57-0406D2E30655">
+          <dmn:text>"New Relationship"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_5D33FF10-DCAC-47C9-8EFE-2A6FC4E74A03">
+          <dmn:text>"NA"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_9FDE68F3-19D0-4021-9497-D46927F5BE38">
+          <dmn:text>"DAP"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
+  </dmn:decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_85B0C3E6-558B-4DE7-8D00-F8BA5DDA1188" name="DRG">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_11C7897B-1138-4F47-8F34-C4312A209F88">
+            <kie:width>50</kie:width>
+            <kie:width>211</kie:width>
+            <kie:width>229</kie:width>
+            <kie:width>335</kie:width>
+            <kie:width>186</kie:width>
+            <kie:width>156</kie:width>
+            <kie:width>127</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-drg-_D83E2C1B-B15D-42CC-B5EA-7401C28F5A6A" dmnElementRef="_D83E2C1B-B15D-42CC-B5EA-7401C28F5A6A" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="940" y="420" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_6A35542E-105C-40A3-97BC-52676A337C15" dmnElementRef="_6A35542E-105C-40A3-97BC-52676A337C15" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="1257" y="416" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-drg-_97C4B69E-B9EE-4D41-A871-94A16C658DB1" dmnElementRef="_97C4B69E-B9EE-4D41-A871-94A16C658DB1">
+        <di:waypoint x="990" y="445"/>
+        <di:waypoint x="1257" y="441"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
